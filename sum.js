@@ -1,3 +1,3 @@
-const sum = (numbers) =>
-    numbers.length === 0 ? 0 : numbers[0] + sum(numbers.slice(1));
-  
+// getting sum of an array recursively
+const sum = (array) =>
+    array.length === 0 ? 0 : array[0] + sum(array.slice(1));  
