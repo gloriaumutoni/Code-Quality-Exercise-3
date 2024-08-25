@@ -1,8 +1,5 @@
-const flattenArray = (arr) =>
-    arr.reduce(
-      (accumulator, item) =>
-        Array.isArray(item)
-          ? accumulator.concat(flattenArray(item))
-          : accumulator.concat(item),
-      []
-    );
+const levelOfNesting = (arr) => {
+  if (!Array.isArray(arr)) return 0;
+  return 1 + Math.max(0, ...arr.map(levelOfNesting));
+};
+const flattenArray = (arr) => (levelOfNesting(arr) ? arr.flat(Infinity) : arr);
